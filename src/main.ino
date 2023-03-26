@@ -230,7 +230,7 @@ void loop() {
     ReadDataNew();
     SentMessage = "01 0F 11";
     DEBUG_PORT.println(SentMessage);
-    DEBUG_PORT.println(SentMessage);
+    ELM_PORT.println(SentMessage);
     delay(verzoegerung);
     ReadDataNew();
     SentMessage = "01 0C 42";
@@ -690,7 +690,7 @@ String fixedLengthFloat(double num, uint8_t dec, uint8_t divider, int16_t length
 
 void waitForTouch() {
   unsigned long start = millis();
-  while (millis() - start < 5000) {
+  while (millis() - start < 500) {
     TouchPoint touchPos = touchScreen.read();
     if (touchPos.touched) {
       DEBUG_PORT.println("touch detected");
